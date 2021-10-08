@@ -3636,6 +3636,7 @@ li .richText-btn[data-command=toggleCode] {
     color: #444444;
     font-weight: 500;
     margin-bottom: 20px;
+    margin-left: 500px;
   }
   .offcanvas-menu-wrapper .om-widget ul li i {
     display: inline-block;
@@ -3657,16 +3658,10 @@ li .richText-btn[data-command=toggleCode] {
     position: absolute;
     left: -13px;
     top: -2px;
-    content: "|";
+    margin-left : 100px;
   }
   .offcanvas-menu-wrapper .om-widget .hw-btn {
-    font-size: 14px;
-    color: #ffffff;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    background: #808080;
     padding: 14px 30px;
-    text-transform: uppercase;
     display: inline-block;
   }
   .offcanvas-menu-wrapper .om-menu {
@@ -3698,24 +3693,14 @@ li .richText-btn[data-command=toggleCode] {
     border-radius: 0;
     background: transparent;
     color: #111111;
+    
   }
   .offcanvas-menu-wrapper .slicknav_nav li {
     border-bottom: 1px solid #111111;
   }
   .offcanvas-menu-wrapper .slicknav_nav li .dropdown {
     border-top: 1px solid #111111;
-  }
-  .offcanvas-menu-wrapper .om-social a {
-    font-size: 16px;
-    color: #111111;
-    height: 35px;
-    width: 35px;
-    line-height: 35px;
-    text-align: center;
-    border: 1px solid #111111;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 6px;
+    margin-left:30px;
   }
 }
 /* Wide Mobile = 480px */
@@ -4120,13 +4105,7 @@ li .richText-btn[data-command=toggleCode] {
     content: "|";
   }
   .offcanvas-menu-wrapper .om-widget .hw-btn {
-    font-size: 14px;
-    color: #ffffff;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    background: #808080;
     padding: 14px 30px;
-    text-transform: uppercase;
     display: inline-block;
   }
   .offcanvas-menu-wrapper .om-menu {
@@ -4152,31 +4131,24 @@ li .richText-btn[data-command=toggleCode] {
     margin: 0;
     color: #111111;
     font-weight: 600;
+    
   }
   .offcanvas-menu-wrapper .slicknav_nav a:hover {
     -webkit-border-radius: 0;
-    border-radius: 0;
+    border-radius: 2px;
     background: transparent;
     color: #111111;
+    
+    
   }
   .offcanvas-menu-wrapper .slicknav_nav li {
     border-bottom: 1px solid #111111;
   }
   .offcanvas-menu-wrapper .slicknav_nav li .dropdown {
     border-top: 1px solid #111111;
+    margin-left : 20px
   }
-  .offcanvas-menu-wrapper .om-social a {
-    font-size: 16px;
-    color: #111111;
-    height: 35px;
-    width: 35px;
-    line-height: 35px;
-    text-align: center;
-    border: 1px solid #111111;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 6px;
-  }
+
 }
 /* Small Device = 320px */
 @media only screen and (max-width: 479px) {
