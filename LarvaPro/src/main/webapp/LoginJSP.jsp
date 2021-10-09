@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="EUC-KR">
@@ -22,26 +23,28 @@
     width: 380px;
     height: 700px;
     position: relative;
-    margin: 10% auto;
+    margin: 2% auto;
     background: #fff;
     padding: 5px;
     overflow: hidden;
+    
 }
 .button-wrap {
-    width: 230px;
+    width: 238px;
     margin: 50px auto;
     position: relative;
-    box-shadow: 0 0 600px 9px #380daf;
+    box-shadow: 0 0 600px 10px purple;
     border-radius: 30px;
 }
 #loginBtn {
-    padding: 10px 30px;
+    padding: 10px 32px;
     cursor: pointer;
     background: transparent;
     border: 0;
     outline: none;
     position: relative;
     color: white;
+
 }
 #regBtn {
     padding: 10px 30px;
@@ -51,12 +54,13 @@
     outline: none;
     position: relative;
     color:black;
+    
 }
 #btn {
     top: 0;
     left: 0;
     position: absolute;
-    width: 110px;
+    width: 118px;
     height: 100%;
     background: linear-gradient(to right, #ac989e, #1a1711);
     border-radius: 30px;
@@ -106,33 +110,42 @@ span {
 }
 #register {
     left: 450px;
-} 
+}
+
 
 </style>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <body>
         <div class="wrap">
-            <div class="form-wrap">
-                <div class="button-wrap">
-                    <div id="btn"></div>
-                    <button type="button" class="togglebtn" onclick="login();co1();changeBtnColorRegBtn()" id="loginBtn">LOG IN</button>
-                    <button type="button" class="togglebtn" onclick="register();co1();changeBtnColorLBtn()" id="regBtn" >REGISTER</button>
-                </div>
+        	<div style="width:260px; left:0; right:0; margin-left:35%; margin-top:5%;">
+        		<div style="margin-left:15%; margin-bottom:10%">
+        		<img src="img/KkalKkom.png" style="width:280px; height:70px;">
+        		</div>
+           			<div class="form-wrap">
+                		<div class="button-wrap">
+                    		<div id="btn"></div>
+                    			<button type="button" class="togglebtn" onclick="login();co1();changeBtnColorRegBtn()" id="loginBtn">로그인</button>
+                    			<button type="button" class="togglebtn" onclick="register();co1();changeBtnColorLBtn()" id="regBtn">회원가입</button>
+                			</div>
             
-                <form id="login" action="" class="input-group">
-                    <input type="email" class="input-field" placeholder="Your Email" required>
-                    <input type="password" class="input-field" placeholder="Enter Password" required>
-                    <input type="checkbox" class="checkbox"><span>Remember Password</span>
-                    <button class="submit">Login</button>
-                </form>
-                <form id="register" action="" class="input-group">
-                    <input type="email" class="input-field" placeholder="Your Email" required>
-                    <input type="password" class="input-field" placeholder="Enter Password" required>
-                    <input type="name" class="input-field" placeholder="Your Name" required>
-                    <input type="address" class="input-field" placeholder="Your Address" required>
-                    <input type="tel" class="input-field bottomSide" placeholder="Your Tel" required>
-                    <button class="submit">REGISTER</button>
-                </form>
+                			<form id="login" action="" class="input-group">
+                    		<input type="text" class="input-field" placeholder="아이디를 입력하세요" required>
+                    		<input type="password" class="input-field" placeholder="비밀번호를 입력하세요" required>
+                    		<input type="checkbox" class="checkbox"><span>비밀번호 저장</span>
+                    		<button class="submit">로그인</button>
+                		</form>
+                		<form id="register" action="JoinService" class="input-group" method="post">
+                    		<input type="text" class="input-field" placeholder="사용할 아이디를 입력하세요" name="id" required>
+                    		<input type="password" class="input-field" placeholder="사용할 비밀번호를 입력하세요" name="pw" required>
+                    		<input type="text" class="input-field" placeholder="이름을 입력하세요" name="name" required>
+                    		<input type="text" class="input-field" placeholder="사용할 닉네임을 입력하세요" name="nick" required>
+                    		<input type="email" class="input-field" placeholder="이메일을 입력하세요" name="email" required>
+                    		<input type="text" class="input-field" placeholder="전화번호를 입력하세요" name="tel" required>
+                    		<input type="text" class="input-field bottomSide" placeholder="주소를 입력하세요" name="address" required>
+                    		<button class="submit">회원가입</button>
+                		</form>
+            	</div>
             </div>
         </div>
         <script>

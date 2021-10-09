@@ -1,8 +1,16 @@
 package com.model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+
+
+
+
 
 public class memberDAO {
 	
@@ -13,20 +21,18 @@ public class memberDAO {
 	   String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
 	   String id = "campus_k3_1006";
 	   String pw = "smhrd3";
-	 
+	   
 	   try {
 	       Class.forName("oracle.jdbc.driver.OracleDriver");
-	 
 	       conn = DriverManager.getConnection(url, id, pw);
-	 
-	       return conn;
 	   } catch (Exception e) {
-	       e.printStackTrace();
+	       System.out.println("접속실패");
+		   e.printStackTrace();
 	   }
 	   return conn;
 	}
 	
-	//회원가입
+	//회원가입 메소드
 	public int join(memberVO member) {
 		Connection conn=getConnection();
 		PreparedStatement psmt=null;
@@ -41,7 +47,12 @@ public class memberDAO {
 			psmt.setString(5, member.getMemEmail());
 			psmt.setString(6, member.getMemTel());
 			psmt.setString(7, member.getMemAdress());
-			psmt.setString(8, "sysdate");
+			
+			//sql에 넣을 날짜값 구하기
+			Calendar cal=new GregorianCalendar();
+			Date nowDate=new Date(cal.getTimeInMillis());
+			
+			psmt.setDate(8, nowDate);
 					
 			cnt=psmt.executeUpdate();
 					
