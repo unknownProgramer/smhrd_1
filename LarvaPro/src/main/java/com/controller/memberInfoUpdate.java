@@ -1,46 +1,45 @@
 package com.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.memberDAO;
 import com.model.memberVO;
 
-@WebServlet("/JoinService")
-public class JoinService extends HttpServlet {
+@WebServlet("/memberInfoUpdate")
+public class memberInfoUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
 		
-		request.setCharacterEncoding("euc-kr");
-
-		String id=request.getParameter("id");
 		String pw=request.getParameter("pw");
 		String name=request.getParameter("name");
 		String nick=request.getParameter("nick");
 		String email=request.getParameter("email");
 		String tel=request.getParameter("tel");
-		String address=request.getParameter("address");
-
-		memberVO memberInfo=new memberVO(id, pw, name, nick, email, tel, address, tel,1,"안녕하세요");
-		memberDAO membershipJoin=new memberDAO();
-
-		int cnt=membershipJoin.join(memberInfo);
-
-		if(cnt>0) {
-			//회원이름값 넘겨주기
-			request.setAttribute("JoinName",memberInfo.getMemUserName());
-			//forward 방식으로 페이지 이동
-			RequestDispatcher rd=request.getRequestDispatcher("JoinSuccess.jsp");
-			rd.forward(request, response);
+		String add=request.getParameter("add");
+		String hi=request.getParameter("hi");
+		String id=request.getParameter("memberInfoUpdate");
+		
+		memberDAO dao=new memberDAO();
+		int result=dao.updateMemberInfo(pw, name, nick, email, tel, add, hi, id);
+		memberVO vo=dao.login(id, pw);
+		
+		HttpSession Session=request.getSession();
+		
+		if(result>0) {
+			Session.setAttribute("loginMemberSession", vo);//로그인 세션 재생성
+			response.sendRedirect("memberUpdateSuccess.jsp");
+		}else {
+			
 		}
+		
 	}
-
 }
